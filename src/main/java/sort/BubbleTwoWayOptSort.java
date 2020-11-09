@@ -7,6 +7,12 @@ package sort;
  * 空间复杂度: Q(1)
  */
 public class BubbleTwoWayOptSort implements ISort {
+    /**
+     * 排序
+     *
+     * @param data
+     * @return
+     */
     @Override
     public int[] sort(int[] data) {
         // 定义个标识表示是否进行下次循环，为true时，继续循环，false时表示已就绪退出循环

@@ -15,39 +15,39 @@ public class BubbleTwoWayOptSortV2 implements ISort {
         int helfLenght = data.length / 2;
 
         // 记录最后一次交换的位置
-        int leftLastExchangeIndex = 0;
+        int startIndexLastExchangeIndex = 0;
 
         // 无序数列的边界，每次只需要比较到这里就可以了
-        int leftSortBorder = data.length - 1;
+        int startIndexSortBorder = data.length - 1;
 
         // 记录最后一次交换的位置
-        int rightLastExchangeIndex = data.length - 1;
+        int endIndexLastExchangeIndex = data.length - 1;
 
         // 无序数列的边界，每次只需要比较到这里就可以了
-        int rightSortBorder = 0;
+        int endIndexSortBorder = 0;
 
         // 外循环从0开始到数组最后一个元素的位置
         for (int i = 0; i < helfLenght && flag; i++) {
             flag = false;
             // 从0到data.length - i - 1，也就是说内循环从0到逐步减小的位置下标
-            for (int j = i; j < leftSortBorder; j++) {
+            for (int j = i; j < startIndexSortBorder; j++) {
                 if (data[j] > data[j + 1]) {
                     swap(data, j, j + 1);
                     flag = true;
-                    leftLastExchangeIndex = j;
+                    startIndexLastExchangeIndex = j;
                 }
             }
-            leftSortBorder = leftLastExchangeIndex;
+            startIndexSortBorder = startIndexLastExchangeIndex;
             // 内循环从data.length-i-2到0，也就是说内循环从大到逐步减小的位置下标
-            for (int j = data.length - i - 2; j - 1 >= rightSortBorder; j--) {
+            for (int j = data.length - i - 2; j - 1 >= endIndexSortBorder; j--) {
                 if (data[j] < data[j - 1]) {
                     swap(data, j, j - 1);
                     flag = true;
-                    rightLastExchangeIndex = j;
+                    endIndexLastExchangeIndex = j;
 
                 }
             }
-            rightSortBorder = rightLastExchangeIndex;
+            endIndexSortBorder = endIndexLastExchangeIndex;
         }
         return data;
     }

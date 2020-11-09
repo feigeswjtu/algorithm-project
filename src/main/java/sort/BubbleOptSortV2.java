@@ -7,6 +7,12 @@ package sort;
  * 空间复杂度: Q(1)
  */
 public class BubbleOptSortV2 implements ISort {
+    /**
+     * 排序
+     *
+     * @param data
+     * @return
+     */
     @Override
     public int[] sort(int[] data) {
         // 记录最后一次交换的位置

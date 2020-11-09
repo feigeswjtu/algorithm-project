@@ -1,17 +1,21 @@
 package sort;
 
+import java.util.Stack;
+
+import sort.model.SortIndex;
+
 /**
- * 快速排序算法
+ * 无递归快速排序算法
+ *
  * 复杂度: Q(n*log(n))
  * 稳定性: 稳定排序算法
  * 空间复杂度: Q(1)
  */
-public class QuickSort implements ISort {
+public class QuickNoRecursiveSort implements ISort {
     private int[] data;
 
     /**
      * 排序
-     *
      * @param data
      * @return
      */
@@ -24,19 +28,28 @@ public class QuickSort implements ISort {
 
     /**
      * 快速排序
-     *
      * @param startIndex
      * @param endIndex
      */
     private void quickSort(int startIndex, int endIndex) {
+        Stack<SortIndex> indexStack = new Stack<>();
+
         if (startIndex >= endIndex) {
             return;
         }
 
-        int i = partition(startIndex, endIndex);
+        indexStack.push(new SortIndex(startIndex, endIndex));
+        while (!indexStack.isEmpty()) {
+            SortIndex popIndex = indexStack.pop();
 
-        quickSort(startIndex, i - 1);
-        quickSort(i + 1, endIndex);
+            int pivotIndex = partition(popIndex.getStartIndex(), popIndex.getEndIndex());
+            if (popIndex.getStartIndex() < pivotIndex - 1) {
+                indexStack.push(new SortIndex(popIndex.getStartIndex(), pivotIndex - 1));
+            }
+            if (popIndex.getEndIndex() > pivotIndex + 1) {
+                indexStack.push(new SortIndex(pivotIndex + 1, popIndex.getEndIndex()));
+            }
+        }
     }
 
     /**

@@ -8,6 +8,11 @@ package sort;
  * 空间复杂度: Q(1)
  */
 public class BaseSort implements ISort{
+    /**
+     * 排序
+     * @param data
+     * @return
+     */
     @Override
     public int[] sort(int[] data) {
         for (int i = 0; i < data.length; i++){

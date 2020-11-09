@@ -1,5 +1,8 @@
 package sort;
 
+/**
+ * 排序接口
+ */
 public interface ISort {
     /**
      * 实现排序接口

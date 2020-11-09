@@ -2,11 +2,17 @@ package sort;
 
 /**
  * 双向冒泡排序（鸡尾酒排序）
+ *
  * 复杂度: Q(n*n)
  * 稳定性: 稳定排序算法
  * 空间复杂度: Q(1)
  */
 public class BubbleTwoWaySort implements ISort {
+    /**
+     * 排序
+     * @param data
+     * @return
+     */
     @Override
     public int[] sort(int[] data) {
         // 一半的长度

@@ -7,6 +7,12 @@ package sort;
  * 空间复杂度: Q(1)
  */
 public class BubbleSort implements ISort {
+    /**
+     * 排序
+     *
+     * @param data
+     * @return
+     */
     @Override
     public int[] sort(int[] data) {
         // 外循环从0开始到数组最后一个元素的位置
