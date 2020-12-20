@@ -9,8 +9,11 @@ package sort;
 public class ShellSort implements ISort{
     @Override
     public int[] sort(int[] data) {
-        for(int grap = data.length/2; grap > 0; grap--) {
+        //设定希尔增量为{n/2,(n/2)/2...1}
+        for(int grap = data.length/2; grap > 0; grap /= 2) {
+            // 按照增量分割数组
             for (int i = 0; i < data.length; i = i + grap) {
+                //循环处理
                 for (int j = i; j > 0; j = j - grap) {
                     if (data[j] < data[j - 1]) {
                         swap(data, j, j - 1);

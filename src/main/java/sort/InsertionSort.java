@@ -9,10 +9,15 @@ package sort;
 public class InsertionSort implements ISort{
     @Override
     public int[] sort(int[] data) {
+        //从第二个元素开始算起
         for (int i = 1; i < data.length; i++){
+            //对比的元素
+            int tmp = data[i];
             for (int j = i; j > 0; j--){
-               if(data[j] < data[j-1]){
-                   swap(data, j, j-1);
+                //如果前一个值小于对比的元素，进行交换
+               if(data[j] < data[j-1]) {
+                   data[j] = data[j - 1];
+                   data[j - 1] = tmp;
                }
             }
         }
