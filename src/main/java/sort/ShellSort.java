@@ -1,12 +1,19 @@
 package sort;
 
 /**
- * 选择排序
+ * 希尔排序
+ *
  * 复杂度: Q(n*n)
  * 稳定性: 稳定排序算法
  * 空间复杂度: Q(1)
  */
-public class ShellSort implements ISort{
+public class ShellSort implements ISort {
+    /**
+     * 排序
+     *
+     * @param data
+     * @return
+     */
     @Override
     public int[] sort(int[] data) {
         //设定希尔增量为{n/2,(n/2)/2...1}

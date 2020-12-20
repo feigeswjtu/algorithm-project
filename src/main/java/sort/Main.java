@@ -14,5 +14,6 @@ public class Main {
         sort.sort(data);
         //打印排序结果
         sort.print(data);
+
     }
 }

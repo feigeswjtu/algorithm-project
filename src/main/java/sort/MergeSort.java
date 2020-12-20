@@ -1,7 +1,5 @@
 package sort;
 
-import java.util.Map;
-
 /**
  * 归并排序算法
  * 复杂度: Q(n*n)
@@ -11,6 +9,11 @@ import java.util.Map;
 public class MergeSort implements ISort{
     private int[] tmpData;
 
+    /**
+     * 排序
+     * @param data
+     * @return
+     */
     @Override
     public int[] sort(int[] data) {//自顶而下的排序算法
         this.tmpData = new int[data.length];
@@ -37,6 +40,14 @@ public class MergeSort implements ISort{
 //        merge(data, low, mid, high);
 //    }
 
+    /**
+     * 合并
+     *
+     * @param data
+     * @param low
+     * @param mid
+     * @param high
+     */
     private void merge(int []data, int low, int mid, int high){
         int i = low;
         int j = mid + 1;

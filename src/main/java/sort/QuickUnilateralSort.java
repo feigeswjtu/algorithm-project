@@ -1,20 +1,15 @@
 package sort;
 
 /**
- * 快速排序算法
+ * 快速排序算法(无两层循环)
+ *
  * 复杂度: Q(n*log(n))
  * 稳定性: 稳定排序算法
  * 空间复杂度: Q(1)
  */
-public class QuickSort implements ISort {
+public class QuickUnilateralSort implements ISort {
     private int[] data;
 
-    /**
-     * 排序
-     *
-     * @param data
-     * @return
-     */
     @Override
     public int[] sort(int[] data) {
         this.data = data;
@@ -47,22 +42,19 @@ public class QuickSort implements ISort {
      * @return
      */
     private int partition(int startIndex, int endIndex) {
-        int i = startIndex;
-        int j = endIndex;
-        int tmp = data[i];
+        int tmp = data[startIndex];
+        int mark = startIndex;
 
-        while (i < j) {
-            //从右边开始移动的原因是左边第一个是关键值，肯定不会大于关键值
-            while (data[j] >= tmp && i < j) {
-                j--;
+        for (int i = startIndex + 1; i <= endIndex; i++) {
+            if (data[i] < tmp) {
+                mark++;
+                swap(data, mark, i);
             }
-            data[i] = data[j];
-            while (data[i] <= tmp && i < j) {
-                i++;
-            }
-            data[j] = data[i];
+
         }
-        data[i] = tmp;
-        return i;
+
+        data[startIndex] = data[mark];
+        data[mark] = tmp;
+        return mark;
     }
 }
