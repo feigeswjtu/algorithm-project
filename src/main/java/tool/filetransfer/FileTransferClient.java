@@ -15,7 +15,7 @@ public class FileTransferClient {
     /**
      * 服务端ip
      */
-    private static final String SERVER_IP = "127.0.0.1";
+    private static final String SERVER_IP = "192.168.1.100";
     /**
      * 服务端端口
      */
@@ -54,7 +54,7 @@ public class FileTransferClient {
      */
     public void sendFile() throws IOException {
         try {
-            File file = new File("/Users/chenyafei/tmpFile/origin/凡人修仙传仙界篇.txt");
+            File file = new File("/Users/yangen/workspaces/backup/backup1220.zip");
             if (file.exists()) {
                 fileInputStream = new FileInputStream(file);
                 dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
