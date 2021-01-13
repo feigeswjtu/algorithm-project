@@ -8,6 +8,15 @@
     <artifactId>algorithm</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+        </dependency>
+    </dependencies>
+
+
     <build>
         <finalName>5_mybatis_maven</finalName>
         <plugins>

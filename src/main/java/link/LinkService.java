@@ -1,11 +1,14 @@
 package link;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import model.Node;
+
+
 /**
- * Created by Administrator on 2017/7/3.
+ * @author feigeswjtu.cyf
+ * @version $Id: LinkService.java, v 0.1 2021-01-13 14:00 feigeswjtu.cyf Exp $$
  */
 public class LinkService {
     //删除重复数据空间复杂度高

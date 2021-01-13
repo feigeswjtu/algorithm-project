@@ -1,5 +1,7 @@
 package binarytree;
 
+import model.BiTNode;
+
 /**
  * Created by Administrator on 2017/7/31.
  */
