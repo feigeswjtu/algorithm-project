@@ -1,5 +1,9 @@
 package sort;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+
 /**
  * 桶排序算法
  * 复杂度: Q(n*n)
@@ -8,52 +12,60 @@ package sort;
  */
 public class BucketSort implements ISort {
     /**
-     * 排序
+     * 实现排序接口
      *
      * @param data
-     * @return
      */
     @Override
     public int[] sort(int[] data) {
-        int maxValue = max(data);
-        int[] dataTmp = new int[maxValue];
-        for (int i = 0; i < dataTmp.length; i++) {
-            dataTmp[i] = -1;
-        }
-        for (int i = 0; i < data.length; i++) {
-            if (dataTmp[data[i]] > 0) {
-                dataTmp[data[i]] += 1;
-            } else {
-                dataTmp[data[i]] = 1;
-            }
-        }
-        int index = 0;
-        for (int i = 0; i < dataTmp.length; i++) {
-            if (dataTmp[i] > 0) {
-                int count = dataTmp[i];
-                for (int j = 0; j < count; j++) {
-                    data[index] = i;
-                    index++;
-                }
-            }
-        }
-
-        return data;
-    }
-
-    /**
-     * 找最大值
-     *
-     * @param data
-     * @return
-     */
-    private int max(int[] data) {
+        // 求最大值和最小值，并得到差值d
         int maxValue = data[0];
-        for (int i = 1; i < data.length; i++) {
-            if (maxValue < data[i]) {
-                maxValue = data[i];
+        int minValue = data[0];
+        for (int value : data) {
+            if (value > maxValue) {
+                maxValue = value;
+            }
+            if (value < minValue) {
+                minValue = value;
             }
         }
-        return maxValue + 1;
+        int d = maxValue - minValue;
+
+        // 初始化桶
+        int bucketNum = data.length;
+        ArrayList<LinkedList<Integer>> bucketList = new ArrayList<>(bucketNum);
+
+        for (int i = 0; i < bucketNum; i++) {
+            bucketList.add(new LinkedList<>());
+        }
+
+        // 遍历原始数组，并将每个元素放入桶中
+        for (int i = 0; i < data.length; i++) {
+            int num = (int)(1D * (data[i] - minValue) * (bucketNum - 1) / d);
+            bucketList.get(num).add(data[i]);
+        }
+
+        // 对每个桶单独排序
+        for (int i = 0; i < bucketList.size(); i++) {
+            Collections.sort(bucketList.get(i));
+        }
+
+        // 输出全部元素
+        int[] sortedArray = new int[data.length];
+
+        int index = 0;
+
+        for (LinkedList<Integer> integers : bucketList) {
+            for (Integer s : integers) {
+                sortedArray[index] = s;
+                index ++;
+            }
+        }
+        return sortedArray;
+
+
+
+
+
     }
 }

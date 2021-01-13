@@ -15,7 +15,7 @@ public class FileTransferClient {
     /**
      * 服务端ip
      */
-    private static final String SERVER_IP = "192.168.1.100";
+    private static final String SERVER_IP = "192.168.1.101";
     /**
      * 服务端端口
      */
@@ -54,7 +54,7 @@ public class FileTransferClient {
      */
     public void sendFile() throws IOException {
         try {
-            File file = new File("/Users/yangen/workspaces/backup/backup1220.zip");
+            File file = new File("/Users/yangen/Documents/spring-framework.zip");
             if (file.exists()) {
                 fileInputStream = new FileInputStream(file);
                 dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
