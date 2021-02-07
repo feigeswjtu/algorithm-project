@@ -54,7 +54,7 @@ public class FileTransferClient {
      */
     public void sendFile() throws IOException {
         try {
-            File file = new File("/Users/yangen/Documents/spring-framework.zip");
+            File file = new File("/Users/yangen/workspaces/books.zip");
             if (file.exists()) {
                 fileInputStream = new FileInputStream(file);
                 dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
