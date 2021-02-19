@@ -78,7 +78,7 @@ public class FileTransferServer {
                 // 文件名和长度
                 String fileName = dis.readUTF();
                 long fileLength = dis.readLong();
-                File directory = new File("/Users/yangen/Documents/nxStudy");
+                File directory = new File("/Users/yangen/Documents/nxStudy1");
                 if (!directory.exists()) {
                     directory.mkdir();
                 }
